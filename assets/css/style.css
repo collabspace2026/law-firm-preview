@@ -1,18 +1,20 @@
 /* Smith & Associates — Personal Injury Lawyers, North Sydney
    Preview build, styled after the Avvocato (VamTam) small-law-firm theme */
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root{
-  --navy: #0e1b3d;
-  --navy-2: #142455;
-  --gold: #c9a75c;
-  --tan: #e8dfc9;
+  --navy: #041531;
+  --navy-2: #0a2242;
+  --gold: #c0a262;
+  --tan: #e3dbca;
   --cream: #faf8f3;
-  --ink: #1c1c1c;
-  --muted: #6b6b6b;
+  --ink: #0f151f;
+  --muted: #62676c;
   --line: #e4e0d6;
   --radius: 2px;
-  --serif: Georgia, 'Times New Roman', Times, serif;
-  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --serif: 'Lora', Georgia, 'Times New Roman', Times, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 *{ box-sizing: border-box; }
@@ -20,6 +22,7 @@ html{ scroll-behavior: smooth; }
 body{
   margin: 0;
   font-family: var(--sans);
+  font-weight: 300;
   color: var(--ink);
   background: #fff;
   line-height: 1.6;
@@ -69,99 +72,163 @@ a{ color: inherit; text-decoration: none; }
   border-bottom: 1px solid #f0dfa0;
 }
 
-/* ---------- top bar ---------- */
-.topbar{
-  background: var(--navy);
-  color: #cfd6e8;
-  font-size: 13px;
+/* ---------- header (overlays hero) ---------- */
+.site-header{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  color: #fff;
 }
-.topbar .container{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-.topbar-links{ display: flex; gap: 24px; }
-.topbar-links a:hover{ color: #fff; }
-.topbar-contact{ display: flex; gap: 20px; align-items: center; }
-.topbar-contact strong{ color: #fff; }
-
-/* ---------- main nav ---------- */
-.navbar{
-  border-bottom: 1px solid var(--line);
-  background: #fff;
-}
-.navbar .container{
+.site-header .container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 26px;
+  padding-bottom: 26px;
 }
 .logo{
   font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--navy);
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
   letter-spacing: 0.01em;
 }
 .logo span{ color: var(--gold); }
 .nav-links{
   display: flex;
-  gap: 32px;
+  gap: 30px;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--navy);
+  font-weight: 500;
+  color: #fff;
 }
-.nav-cta{ display: flex; align-items: center; gap: 18px; }
-.nav-phone{ text-align: right; font-size: 13px; color: var(--muted); }
-.nav-phone strong{ display: block; font-size: 17px; color: var(--navy); font-family: var(--serif); }
+.nav-links a:hover{ color: var(--gold); }
+.nav-cta{ text-align: right; font-size: 12px; color: var(--gold); letter-spacing: .02em; }
+.nav-cta strong{ display: block; font-size: 16px; color: #fff; font-family: var(--serif); font-weight: 500; }
 
 /* ---------- hero ---------- */
 .hero{
   position: relative;
-  background: var(--navy);
   color: #fff;
   overflow: hidden;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  background: #10151c;
 }
-.hero-skyline{
+.hero-photo{
   position: absolute;
-  left: 0; right: 0; bottom: 0;
-  width: 100%;
-  opacity: 0.35;
-  pointer-events: none;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
 }
-.hero-skyline img, .hero-skyline svg{ width: 100%; display: block; }
+.hero-photo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(4,10,24,.92) 0%, rgba(4,10,24,.55) 42%, rgba(4,10,24,.35) 100%);
+}
 .hero-inner{
   position: relative;
   z-index: 2;
-  padding: 120px 0 160px;
-  max-width: 680px;
-}
-.hero-inner .eyebrow{ margin-bottom: 18px; }
-.hero-inner h1{
-  font-family: var(--serif);
-  font-size: 52px;
-  line-height: 1.15;
-  margin: 0 0 22px;
-}
-.hero-inner h1 em{ color: var(--gold); font-style: normal; }
-.hero-inner p{
-  font-size: 17px;
-  color: #cfd6e8;
-  max-width: 520px;
-  margin-bottom: 34px;
-}
-.hero-actions{ display: flex; gap: 16px; flex-wrap: wrap; }
-.hero-badges{
+  padding: 120px 0 72px;
+  width: 100%;
   display: flex;
-  gap: 28px;
-  margin-top: 56px;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
   flex-wrap: wrap;
 }
-.hero-badge{ font-size: 13px; color: #b9c2dc; }
-.hero-badge strong{ display: block; font-family: var(--serif); font-size: 22px; color: #fff; }
+.hero-copy{ max-width: 620px; }
+.hero-copy h1{
+  font-family: var(--serif);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+.hero-meta{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.hero-meta .btn{ white-space: nowrap; }
+.hero-meta-sep{ color: rgba(255,255,255,.5); }
+.hero-meta-text{ font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 15px; line-height: 1.4; }
+.hero-rating{
+  text-align: center;
+  color: #fff;
+}
+.hero-rating strong{ display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; }
+.hero-rating span{ font-size: 12px; color: rgba(255,255,255,.7); }
+.hero-rating a{ display: block; font-size: 12px; color: var(--gold); margin-top: 6px; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+
+/* ---------- practice areas ---------- */
+.practice{ padding: 96px 0; background: #fff; }
+.practice-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.practice-head h2{ font-family: var(--serif); font-size: 32px; color: var(--ink); margin: 8px 0 0; }
+.practice-head a{ font-size: 13px; font-weight: 600; color: var(--ink); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+.practice-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.practice-card{
+  background: #fff;
+  padding: 36px 32px;
+}
+.practice-card .amount{ font-family: var(--serif); font-size: 30px; color: var(--gold); font-weight: 500; margin-bottom: 6px; }
+.practice-card .label{ font-size: 15px; color: var(--ink); font-weight: 500; }
+
+/* ---------- city / insurance-education split ---------- */
+.city-split{ background: var(--navy); color: #fff; }
+.city-split .container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.city-photo{
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+}
+.city-photo-inner{ position: relative; z-index: 2; }
+.city-photo img{
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55;
+}
+.city-photo::after{
+  content:""; position:absolute; inset:0; background: linear-gradient(0deg, rgba(4,21,49,.9), rgba(4,21,49,.15));
+}
+.city-photo h3{ font-family: var(--serif); font-size: 46px; margin: 0 0 10px; }
+.city-photo p{ color: var(--gold); font-size: 15px; margin: 0 0 14px; }
+.city-photo a{ font-size: 13px; color: #fff; border-bottom: 1px solid #fff; padding-bottom: 2px; }
+.city-steps{ padding: 56px; display: flex; flex-direction: column; gap: 34px; justify-content: center; }
+.city-step{ display: flex; gap: 20px; }
+.city-step .num{ font-family: var(--serif); font-size: 20px; color: var(--gold); min-width: 28px; }
+.city-step h4{ font-family: var(--serif); font-size: 19px; margin: 0 0 8px; font-weight: 500; }
+.city-step p{ margin: 0; font-size: 14px; color: #b9c2dc; line-height: 1.7; }
+
+/* ---------- why choose us ---------- */
+.why{ padding: 96px 0; background: var(--cream); }
+.why-head{ font-family: var(--serif); font-size: 32px; color: var(--ink); margin: 0 0 48px; }
+.why-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.why-card h3{ font-family: var(--serif); font-size: 20px; color: var(--ink); margin: 0 0 14px; font-weight: 500; }
+.why-card p{ margin: 0; font-size: 14.5px; color: var(--muted); line-height: 1.7; }
 
 /* ---------- testimonial band ---------- */
 .testimonials{
@@ -170,6 +237,14 @@ a{ color: inherit; text-decoration: none; }
   padding: 72px 0 56px;
   position: relative;
 }
+.testimonials-tabs{
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: #b9c2dc;
+  margin-bottom: 22px;
+}
+.testimonials-tabs a:hover{ color: #fff; }
 .testimonials-head{
   display: flex;
   justify-content: space-between;
@@ -437,4 +512,9 @@ a{ color: inherit; text-decoration: none; }
   .info-split .container, .help .container, .faq .container{ grid-template-columns: 1fr; gap: 40px; }
   .blog-grid{ grid-template-columns: 1fr; }
   .footer-bottom .container{ flex-direction: column; align-items: flex-start; }
+  .practice-grid{ grid-template-columns: 1fr; }
+  .city-split .container{ grid-template-columns: 1fr; }
+  .why-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .hero-copy h1{ font-size: 36px; }
+  .hero-inner{ flex-direction: column; align-items: flex-start; }
 }
