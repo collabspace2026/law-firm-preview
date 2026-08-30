@@ -110,7 +110,7 @@ a{ color: inherit; text-decoration: none; }
   position: relative;
   color: #fff;
   overflow: hidden;
-  min-height: 92vh;
+  min-height: 100vh;
   display: flex;
   align-items: flex-end;
   background: #10151c;
@@ -125,7 +125,7 @@ a{ color: inherit; text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(4,10,24,.92) 0%, rgba(4,10,24,.55) 42%, rgba(4,10,24,.35) 100%);
+  background: rgba(0,0,0,.45);
 }
 .hero-inner{
   position: relative;
@@ -162,6 +162,48 @@ a{ color: inherit; text-decoration: none; }
 .hero-rating strong{ display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; }
 .hero-rating span{ font-size: 12px; color: rgba(255,255,255,.7); }
 .hero-rating a{ display: block; font-size: 12px; color: var(--gold); margin-top: 6px; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+
+/* ---------- $ recovered / illustration ---------- */
+.recovered{
+  position: relative;
+  background: #fff;
+  padding: 100px 0 260px;
+  overflow: hidden;
+}
+.recovered-text{ max-width: 620px; }
+.recovered-text h2{
+  font-family: var(--serif);
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 12px 0 22px;
+}
+.recovered-text p{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+.recovered-illustration{
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: min(1100px, 92%);
+  height: auto;
+  pointer-events: none;
+}
+
+/* ---------- mini utility tabs (above testimonials) ---------- */
+.mini-tabs{
+  border-top: 1px solid rgba(15,21,31,.15);
+  padding: 18px 0;
+}
+.mini-tabs .container{ display: flex; gap: 28px; }
+.mini-tabs a{ font-size: 13px; font-weight: 500; color: var(--ink); }
+.mini-tabs a:hover{ color: var(--gold); }
 
 /* ---------- practice areas ---------- */
 .practice{ padding: 96px 0; background: #fff; }
@@ -201,25 +243,18 @@ a{ color: inherit; text-decoration: none; }
   min-height: 480px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 48px 40px 0;
-  overflow: hidden;
+  justify-content: center;
+  padding: 48px 40px;
+  border-right: 1px solid rgba(255,255,255,.1);
 }
 .city-photo-inner{ position: relative; z-index: 2; }
-.city-photo img{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  opacity: .95;
-}
 .city-photo h3{ font-family: var(--serif); font-size: 46px; margin: 0 0 10px; }
 .city-photo p{ color: var(--gold); font-size: 15px; margin: 0 0 14px; }
 .city-photo a{ font-size: 13px; color: #fff; border-bottom: 1px solid #fff; padding-bottom: 2px; }
 .city-steps{ padding: 56px; display: flex; flex-direction: column; gap: 34px; justify-content: center; }
 .city-step{ display: flex; gap: 20px; }
 .city-step .num{ font-family: var(--serif); font-size: 20px; color: var(--gold); min-width: 28px; }
+.city-steps-head{ font-family: var(--serif); font-size: 24px; font-weight: 500; color: #fff; margin: 0 0 8px; }
 .city-step h4{ font-family: var(--serif); font-size: 19px; margin: 0 0 8px; font-weight: 500; }
 .city-step p{ margin: 0; font-size: 14px; color: #b9c2dc; line-height: 1.7; }
 
@@ -241,14 +276,6 @@ a{ color: inherit; text-decoration: none; }
   padding: 72px 0 56px;
   position: relative;
 }
-.testimonials-tabs{
-  display: flex;
-  gap: 24px;
-  font-size: 13px;
-  color: #b9c2dc;
-  margin-bottom: 22px;
-}
-.testimonials-tabs a:hover{ color: #fff; }
 .testimonials-head{
   display: flex;
   justify-content: space-between;
@@ -455,8 +482,6 @@ a{ color: inherit; text-decoration: none; }
   color: #fff;
   overflow: hidden;
 }
-.footer-skyline{ position: absolute; left: 0; right: 0; bottom: 0; width: 100%; opacity: .7; }
-.footer-skyline img, .footer-skyline svg{ width: 100%; display: block; }
 .footer-top{ position: relative; z-index: 2; padding: 100px 0 60px; }
 .footer-top h2{
   font-family: var(--serif);
