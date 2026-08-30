@@ -62,16 +62,6 @@ a{ color: inherit; text-decoration: none; }
 .btn-navy{ background: var(--navy); color: #fff; }
 .btn-navy:hover{ opacity: .9; }
 
-/* ---------- placeholder banner ---------- */
-.preview-banner{
-  background: #fff3cd;
-  color: #6b5600;
-  text-align: center;
-  font-size: 13px;
-  padding: 8px 16px;
-  border-bottom: 1px solid #f0dfa0;
-}
-
 /* ---------- header (overlays hero) ---------- */
 .site-header{
   position: absolute;
@@ -165,12 +155,10 @@ a{ color: inherit; text-decoration: none; }
 
 /* ---------- $ recovered / illustration ---------- */
 .recovered{
-  position: relative;
   background: #fff;
-  padding: 100px 0 260px;
-  overflow: hidden;
+  padding: 100px 0 0;
 }
-.recovered-text{ max-width: 620px; }
+.recovered-text{ max-width: 620px; padding-bottom: 60px; }
 .recovered-text h2{
   font-family: var(--serif);
   font-size: 44px;
@@ -187,13 +175,9 @@ a{ color: inherit; text-decoration: none; }
   line-height: 1.6;
 }
 .recovered-illustration{
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  width: min(1100px, 92%);
+  display: block;
+  width: 100%;
   height: auto;
-  pointer-events: none;
 }
 
 /* ---------- mini utility tabs (above testimonials) ---------- */
